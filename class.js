@@ -1,45 +1,43 @@
 // CLASS
 // Blueprint untuk Membuat Object dengan Property yang Sama
 
-const products = [
-    {name: 'Apel', Price: 10000},
-    {name: 'Jeruk', price: 10000},
-    {name: 'Anggur', price: 10000}
-]
+// const products = [
+//     {name: 'Apel', Price: 10000},
+//     {name: 'Jeruk', price: 10000},
+//     {name: 'Anggur', price: 10000}
+// ]
 
-class Products{
-    name='';
-    price=0;
+// class Products{
+//     name='';
+//     price=0;
 
-    constructor(name, price){
-        this.name = name; 
-        this.price = price;
-    }
-}
+//     constructor(name, price){
+//         this.name = name; 
+//         this.price = price;
+//     }
+// }
 
-const product1 = new Products('Apel', 10000)
-const product2 = new Products('Jeruk', 15000)
-console.log(product2)
+// const product1 = new Products('Apel', 10000)
+// const product2 = new Products('Jeruk', 15000)
+// console.log(product2)
 
-const arrProducts = [
-    new Products('Apel', 10000),
-    new Products('Jeruk', 15000)
-]
-console.log(arrProducts)
-
-
-class Student{
-    constructor(name, age, address, school){
-        this.name = name 
-        this.age = age
-        this.address = address
-        this.school = school
-    }
-}
-
-const student1 = new Student('Aboy', 20, 'Bintaro', 'UGM') // Object Baru
+// const arrProducts = [
+//     new Products('Apel', 10000),
+//     new Products('Jeruk', 15000)
+// ]
+// console.log(arrProducts)
 
 
+// class Student{
+//     constructor(name, age, address, school){
+//         this.name = name 
+//         this.age = age
+//         this.address = address
+//         this.school = school
+//     }
+// }
+
+// const student1 = new Student('Aboy', 20, 'Bintaro', 'UGM') // Object Baru
 
 
 
@@ -57,6 +55,8 @@ const student1 = new Student('Aboy', 20, 'Bintaro', 'UGM') // Object Baru
 
 
 
+
+// INHERITANCE: Pewarisan Property 
 // Case.
 // Di sebuah supermarket, terdapat beberapa product category. Mulai dari electronic, fashion dan snack. 
 // Setiap product category memiliki identitas yang berbeda-beda, seperti product name, product stock, dll.
@@ -119,3 +119,44 @@ class Snack extends Products{
         this.productNetto = productNetto;
     }
 }
+
+
+
+// ENCAPSULATION: Proses Bundling Data Menjadi 1 ke Dalam Sebuah Class
+// Public Property
+// Private Property
+
+// Getter (Method untuk Pengambilan Data yang Sudah di Manipulasi)
+// Setter (Method untuk Memanipulasi Data yang akan di Simpan)
+class Users{
+    username = '';
+    #email = '';
+    #password = '';
+
+    constructor(username, password){
+        this.username = username;
+        this.#password = password;
+    }
+
+    set emailValidation(email){
+        if(email.includes('@')){
+            this.#email = email;
+        }else{
+            console.log('Email Not Valid')
+        }
+    }
+
+    get password(){
+        return this.#password
+    }
+
+    get findEmail(){
+        return `***${this.#email.slice(3, this.#email.length)}`
+    }
+}
+
+const user1 = new Users('ryan', 'abc123')
+user1.emailValidation = 'ryan@gmail.com'
+console.log(user1.username)
+console.log(user1.findEmail)
+console.log(user1.password)
