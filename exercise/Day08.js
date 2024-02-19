@@ -10,6 +10,14 @@ class Employee{
         this.status = status;
         this.position = position;
     }
+
+    set calculateTotalSalary({ normalWorkTime, salary, workingHour, overtimeSalary }){
+        console.log(salary)
+        console.log(normalWorkTime)
+        console.log(workingHour)
+        console.log(overtimeSalary)
+        this.totalSalary = (normalWorkTime * salary) + ((workingHour - normalWorkTime) * overtimeSalary)
+    }
 }
 
 class FulltimeEmployee extends Employee{
@@ -19,14 +27,33 @@ class FulltimeEmployee extends Employee{
 
     set addWorkingHour(totalHour){
         this.workingHour = totalHour;
-        this.calculateTotalSalary();
+        this.calculateTotalSalary = {
+            normalWorkTime: this.normalWorkTime,
+            salary: this.salary, 
+            workingHour: totalHour, 
+            overtimeSalary: this.overtimeSalary
+        };
     }
+}
 
-    calculateTotalSalary(){
-        this.totalSalary = (this.normalWorkTime * this.salary) + ((this.workingHour - this.normalWorkTime) * this.overtimeSalary)
+class PartimeEmployee extends Employee{
+    normalWorkTime = 6
+    salary = 50000
+    overtimeSalary = 30000
+
+    set addWorkingHour(totalHour){
+        this.workingHour = totalHour;
+        this.calculateTotalSalary = {
+            normalWorkTime: this.normalWorkTime,
+            salary: this.salary, 
+            workingHour: totalHour, 
+            overtimeSalary: this.overtimeSalary
+        };
     }
 }
 
 let employee1 = new FulltimeEmployee('Defryan', 'Fulltimer', 'Lecturer')
 employee1.addWorkingHour = 15
-console.log(employee1)
+let employee2 = new PartimeEmployee('Mumtaz', 'Partimer', 'Lecturer')
+employee2.addWorkingHour = 20
+console.log(employee2)
