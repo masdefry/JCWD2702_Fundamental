@@ -1,0 +1,152 @@
+1. Apakah hasil console.log di bawah ini?
+
+//
+    console.log(typeof null)
+    console.log(typeof 404)
+//
+
+a. null & number
+b. object & number 
+c. number & number 
+d. undefined & number
+
+
+
+2. Apakah perbedaan variable yang dibuat dengan syntax let dan const?
+a. Value variable let bersifat tetap, sedangkan const dapat diubah
+b. Key let memiliki aturan scope (local/global), sedangkan const tidak
+c. Value variable const bersifat tetap, sedangkan let dapat diubah
+d. Nama variable const dapat di duplicate, sedangkan let tidak
+
+
+
+3. Code berikut akan error ketika di execute, apa hal yang menyebabkan error?
+
+//
+    let world = 'Hello, World!'.split(' ')
+    for(let i=0; i<world.length; i+=1){
+        world.push(world[i])
+    }
+//
+
+a. Terjadi infinite loop, karena terdapat proses push
+b. Terjadi kesalahan syntax pada deklarasi for loop
+c. Value string pada variable world tidak dapat di split secara langsung
+d. Increment pada for loop tidak dapat menggunakan +=
+
+
+
+4. Hasil dari code berikut ketika di jalankan adalah?
+
+// 
+    const name = 'Aboy'
+    const age = 25
+    const score = 90
+
+    if(score>70){
+        console.log('Ok, Score Passed!')
+    }if(score>=80){
+        console.log('Good, Score Passed!')
+    }if(score>=90){
+        console.log('Excellent, Score Passed!')
+    }
+//
+
+a. Ok, Score Passed
+b. Good, Score Passed
+c. Excellent, Score Passed
+d. Semua Jawaban Benar
+
+
+
+5. Hasil yang tepat dari kedua console.log berikut adalah?
+
+//
+    const pwd = ['Batam', 'BSD', 'Jakarta']
+    pwd[50] = 'Bandung'
+    console.log(pwd.length)
+    console.log(pwd.indexOf('Bandung'))
+//
+
+a. 51 & 51
+b. 51 & 50
+c. 49 & 50
+d. TypeError: Assignment to constant variable.
+
+
+
+6. Manakah syntax ternary operator yang tepat?
+a. 3 => 0? console.log(true) : console.log(false)
+b. 100 < 0? true : false
+c. 10 = 10? console.log('Yes') : console.log('No')
+d. "ABC" =! "abc"? return 1 : return 0
+
+
+
+7. Hasil console.log(point) yaitu?
+
+//
+    let point = 101
+    point + '1'
+    point++
+    point++
+    point--
+    console.log(point)
+//
+
+a. 102
+b. 103
+c. 1012
+d. 1013
+
+
+
+8. Hasil dari kedua console.log pada program berikut yaitu?
+
+//
+    let student = {
+        name: 'Aisyah', 
+        age: 20
+    } 
+    console.log(student.name)
+    console.log(student.age)
+//
+
+a. Aisyah & ReferenceError: property hobi is not defined
+b. Aisyah & Undefined 
+c. Aisyah & Null 
+d. Aisyah & NaN 
+
+
+
+9. Apakah hasil yang akan ditampilkan dari kode dibawah ini?
+
+//
+    SumNum(5)
+
+    function SumNum(argNum){
+        console.log(argNum * argNum)
+    }
+//
+
+a. 25
+b. Undefined
+c. Error, Karena Function di Call Sebelum di Declare
+d. Error, Karena Function Tidak Me-Return Apapun
+
+
+
+10. Apakah hasil yang akan ditampilkan dari kode dibawah ini?
+
+//
+    SumNum(5)
+
+    const SumNum = (argNum) => {
+        console.log(argNum * argNum)
+    }
+//
+
+a. 25
+b. Undefined
+c. Error, Karena Function di Call Sebelum di Declare
+d. Error, Karena Function Tidak Me-Return Apapun
