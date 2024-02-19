@@ -11,49 +11,28 @@ class Employee{
         this.position = position;
     }
 
-    set calculateTotalSalary({ normalWorkTime, salary, workingHour, overtimeSalary }){
-        console.log(salary)
-        console.log(normalWorkTime)
-        console.log(workingHour)
-        console.log(overtimeSalary)
+    calculateTotalSalary(normalWorkTime, salary, workingHour, overtimeSalary){
         this.totalSalary = (normalWorkTime * salary) + ((workingHour - normalWorkTime) * overtimeSalary)
     }
 }
 
 class FulltimeEmployee extends Employee{
-    normalWorkTime = 6
-    salary = 100000
-    overtimeSalary = 75000
-
-    set addWorkingHour(totalHour){
-        this.workingHour = totalHour;
-        this.calculateTotalSalary = {
-            normalWorkTime: this.normalWorkTime,
-            salary: this.salary, 
-            workingHour: totalHour, 
-            overtimeSalary: this.overtimeSalary
-        };
+    constructor(name, status, workingHour, position){
+        super(name, status, workingHour, position)
+        this.normalWorkTime = 6;
+        this.salary = 100000;
+        this.overtimeSalary = 75000;
     }
-}
-
-class PartimeEmployee extends Employee{
-    normalWorkTime = 6
-    salary = 50000
-    overtimeSalary = 30000
 
     set addWorkingHour(totalHour){
         this.workingHour = totalHour;
-        this.calculateTotalSalary = {
-            normalWorkTime: this.normalWorkTime,
-            salary: this.salary, 
-            workingHour: totalHour, 
-            overtimeSalary: this.overtimeSalary
-        };
+        this.calculateTotalSalary(this.normalWorkTime, this.salary, this.workingHour, this.overtimeSalary)
     }
 }
 
 let employee1 = new FulltimeEmployee('Defryan', 'Fulltimer', 'Lecturer')
 employee1.addWorkingHour = 15
-let employee2 = new PartimeEmployee('Mumtaz', 'Partimer', 'Lecturer')
-employee2.addWorkingHour = 20
-console.log(employee2)
+console.log(employee1)
+// let employee2 = new PartimeEmployee('Mumtaz', 'Partimer', 'Lecturer')
+// employee2.addWorkingHour = 20
+// console.log(employee2)
