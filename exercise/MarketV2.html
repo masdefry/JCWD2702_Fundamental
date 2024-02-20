@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+   class ProductEnity{
+    constructor(name, price){
+        this.name = name,
+        this.price = price 
+    }
+   } 
+
+   const database = [
+    new ProductEnity('Anggur', 10000), 
+    new ProductEnity('Jeruk', 15000)
+   ]
+
+    const createList = (_database) => { // Function
+        let listProducts = ''
+
+        for(let i=0; i<_database.length; i++){
+            listProducts += `${i+1}. ${_database[i].name} = Rp.${_database[i].price.toLocaleString()} \n`
+        }
+
+        return listProducts
+    }
+
+    const app = () => {
+        let selectedMenu
+        selectedMenu = prompt(`Menu: \n 1. Select Product \n 2. Checkout`)
+        const cart = []
+        do{
+            const selectedProduct = Number(prompt(createList(database))) - 1 // Dapat index data nya
+            const productReal = database[selectedProduct] //  {name: Anggur, price: 10000}
+            const qty = Number(prompt('Input Quantity'))
+
+            let productInCart = false 
+            let idx = 0
+            for(let i=0; i<cart.length; i++){
+                if(productReal.name === cart[i].name){
+                    productInCart = true
+                    idx = i  
+                } 
+            }
+
+            if(productInCart === true){
+                cart[idx].qty += qty
+            }else{
+                cart.push({name: productReal.name, qty: qty}) 
+            }
+
+            selectedMenu = prompt(`Menu: \n 1. Select Product \n 2. Checkout`)
+        }while(selectedMenu == 1)
+
+        let output = ''
+        for(let i=0; i<cart.length; i++){
+            output += `${cart[i].name} = ${cart[i].qty} Qty`
+        }
+        alert(output)
+
+    }
+
+    app()
+</script>
+</html>
