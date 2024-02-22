@@ -1,0 +1,54 @@
+<script>
+    const rute = ['Surabaya', 'Toll-01', 'Solo', 'Toll-02', 'Semarang', 'Toll-03', 'Palimanan', 'Toll-04', 'Cikopo']
+    const price = [0, [275500, 310500, 290000], 0, [22500, 31500, 28000], 0, [250000, 275000, 255000], 0 [275500, 310500, 290000]]
+    
+    const gateEnter = prompt(`Type your gate enter:`)
+    const gateExit = prompt(`Type your gate exit:`)
+    const vehicleType = Number(prompt('1. Mobil \n 2. Truck \n 3. Bus')) - 1
+
+    const indexOfGateEnter = rute.indexOf(gateEnter) // 0
+    const indexOfGateExit = rute.indexOf(gateExit) // 4
+
+    let start 
+    let end
+
+    // Apakah Dia Exit nya Lebih Kecil dari Enter?
+    if(indexOfGateExit < indexOfGateEnter){ // Kalo Iya, Kita Switch Index Gate nya
+        start = indexOfGateExit
+        end = indexOfGateEnter
+    }else{
+        start = indexOfGateEnter
+        end = indexOfGateExit
+    }
+
+    let total = 0
+    for(let i=start; i<=end; i++){
+        if(price[i] !== 0){
+            total += price[i][vehicleType] // price[1][2] // price[3][2]
+        }
+    }
+
+    alert(total)
+
+
+
+
+
+    const vehicle = prompt('Input Your Vehicle Type: \n 1. Car \n 2. Truck \n 3. Bus')
+    const inToll = prompt('Input Gate Enter:')
+    const outToll = prompt('Input Gate Exit:')
+    const indexOfInToll = rute.indexOf(inToll)
+    const indexOfOutToll = rute.indexOf(outToll)
+
+    let totalPrice = 0
+    for(let i=indexOfInToll; i<=indexOfOutToll; i++){
+        totalPrice += price[i].length > 1? price[i][vehicle-1] : 0
+
+        console.log(price[i][vehicle-1])
+    }
+    alert(`
+        Gate Enter: ${inToll} \n
+        Gate Exit : ${outToll} \n
+        Fare : ${totalPrice}
+    `)
+</script>
