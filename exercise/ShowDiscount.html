@@ -1,0 +1,29 @@
+<script>
+    let products = [
+        { id: 1, name: 'Asus', price: 20000000, discount: 0 },
+        { id: 2, name: 'Lenovo', price: 15000000, discount: 10 },
+        { id: 3, name: 'Acer', price: 10000000, discount: 30 }
+    ]
+
+    function ShowDiscount(products){
+        let output = `*** Welcome admin *** \n`
+
+        for(let item of products){
+            // Generate Id, Name & Price Only
+            output += `${item.id} ${item.name} = Rp.${item.price.toLocaleString('id-ID')}`
+
+            // Check Discount Exist or Not?
+            if(item.discount > 0){
+                // Exist, Generate to Output
+                output += `= ${item.price - (item.price * (item.discount / 100))} \n`
+            }else{
+                // Not Exist, Generate Enter
+                output += `\n`
+            }
+        }
+
+        alert(output)
+    }
+
+    ShowDiscount(products)
+</script>
