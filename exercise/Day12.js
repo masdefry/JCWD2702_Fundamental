@@ -100,3 +100,23 @@ async function Main(){
 }
 
 Main()
+
+
+
+// 3. Lakukan call API ke link berikut: https://jsonplaceholder.typicode.com/posts.
+//    Gunakan function fetch Javascript untuk melakukannya (baca dokumentasi)
+//    console.log data yang berhasil di fetch
+
+async function FetchData(){
+    try {
+        let res = await fetch('https://jsonplaceholder.typicode.com/postsss')
+        if(res.status === 404) throw new Error('Error')
+        res = await res.json()
+        console.log(res)
+    } catch (error) {
+        console.log('>>>')
+        console.log(error)
+    }
+}
+
+FetchData()
