@@ -327,3 +327,29 @@ a. var & let myFunct = function(){ ... }
 b. let & function NewFunction(){ ... }
 c. const & const createFunction = () => { ... }
 d. var & var ourFunction = () => { ... }
+
+21. Hasil dari kedua console.log berikut adalah?
+/*
+let random = '90D'
+random = parseInt(random)
+console.log(random)
+random = String(random)
+console.log(typeof random)
+*/
+a. NaN & Object 
+b. 90 & Number 
+c. NaN & String 
+d. 90 & String 
+
+22. Hasil dari kedua console.log berikut adalah?
+/*
+let random = 'D90'
+random = Number(random)
+console.log(random)
+random = String(random)
+console.log(typeof random)
+*/
+a. NaN & Object 
+b. 90 & Number 
+c. NaN & String 
+d. 90 & String 
